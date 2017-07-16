@@ -11,24 +11,31 @@ import javax.servlet.ServletResponse;
 
 public class LoginFilter implements Filter {
 
+    private String path;
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     public void init(FilterConfig filterConfig) throws ServletException {
         // TODO Auto-generated method stub
-        System.out.println(LoginFilter.class.getName() + " init");
+        this.path = filterConfig.getInitParameter("path");
+        System.out.println(LoginFilter.class.getName() + " init, path=" + path);
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         // TODO Auto-generated method stub
-        try{
+        try {
             System.out.println(LoginFilter.class.getName() + " doFilter");
             chain.doFilter(request, response);
             System.out.println(LoginFilter.class.getName() + " doFilter after");
-        }catch(Exception e){
-            
-        }finally {
+        } catch (Exception e) {
+
+        } finally {
             System.out.println(LoginFilter.class.getName() + " finally");
         }
-       
+
     }
 
     public void destroy() {
