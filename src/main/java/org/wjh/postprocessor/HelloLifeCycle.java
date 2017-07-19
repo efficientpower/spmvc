@@ -6,28 +6,15 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 public class HelloLifeCycle implements InitializingBean, DisposableBean, 
-        BeanFactoryAware, BeanNameAware, ApplicationContextAware, BeanPostProcessor {
+        BeanFactoryAware, BeanNameAware, ApplicationContextAware {
 
     public HelloLifeCycle() {
         // TODO Auto-generated constructor stub
         System.out.println("HelloLifeCycle 构造方法");
-    }
-
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        // TODO Auto-generated method stub
-        System.out.println("HelloLifeCycle postProcessBeforeInitialization beanName=" + beanName);
-        return null;
-    }
-
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        // TODO Auto-generated method stub
-        System.out.println("HelloLifeCycle postProcessAfterInitialization beanName=" + beanName);
-        return null;
     }
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
