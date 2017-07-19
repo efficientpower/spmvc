@@ -15,13 +15,13 @@ public class HelloBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         // TODO Auto-generated method stub
         System.out.println("HelloBeanPostProcessor postProcessBeforeInitialization " + beanName);
-        return null;
+        return bean;
     }
 
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         // TODO Auto-generated method stub
         System.out.println("HelloBeanPostProcessor postProcessAfterInitialization " + beanName);
-        return null;
+        return bean;
     }
 
 }
