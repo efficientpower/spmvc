@@ -11,8 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 public class HelloLifeCycle implements InitializingBean, DisposableBean, 
-        BeanFactoryAware, BeanNameAware,
-        ApplicationContextAware, BeanPostProcessor {
+        BeanFactoryAware, BeanNameAware, ApplicationContextAware, BeanPostProcessor {
 
     public HelloLifeCycle() {
         // TODO Auto-generated constructor stub
