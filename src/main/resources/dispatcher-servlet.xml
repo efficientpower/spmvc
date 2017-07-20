@@ -16,5 +16,5 @@
 	</context:component-scan>
 	<!-- 注解支持的mvc -->
 	<mvc:annotation-driven />
-	<bean id="helloControllerBeanPostProcessor" class="org.wjh.postprocessor.HelloControllerBeanPostProcessor"/>
+	<bean id="helloControllerBeanPostProcessor" class="org.wjh.common.HelloControllerBeanPostProcessor"/>
 </beans>
