@@ -1,6 +1,5 @@
 package org.wjh.web;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,12 +14,19 @@ public class HelloController {
 
     @Autowired
     UserService userService;
+    
+    public HelloController() {
+        System.out.println("HelloController 构造方法");
+        // TODO Auto-generated constructor stub
+    }
+
+
 
     @ResponseBody
     @RequestMapping("/wjh/hello.do")
-    public Object hello() throws IOException {
+    public Object hello(){
         Map<String, Object> res = new HashMap<String, Object>();
-
+        
         res.put("name", "wjh");
         res.put("age", 27);
         return res;

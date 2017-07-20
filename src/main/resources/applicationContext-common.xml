@@ -15,5 +15,7 @@
         http://www.springframework.org/schema/task      http://www.springframework.org/schema/task/spring-task-3.1.xsd"
     default-autowire="byName" default-lazy-init="false">
 
-   <bean id="helloLifeCycle" class="org.wjh.postprocessor.HelloLifeCycle" init-method="helloInit" destroy-method="helloDestory"/>
+   <bean id="helloLifeCycle" class="org.wjh.postprocessor.HelloLifeCycle" init-method="helloInit" destroy-method="helloDestory">
+        <property name="duration" value="20170721"/>
+   </bean>
 </beans>

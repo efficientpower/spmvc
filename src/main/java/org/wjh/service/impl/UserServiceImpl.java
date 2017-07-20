@@ -11,6 +11,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private HelloNotifier helloNotifier;
     
+    public UserServiceImpl() {
+        // TODO Auto-generated constructor stub
+        System.out.println("UserServiceImpl 构造方法");
+    }
+
     public String getUserName(String userId) {
         // TODO Auto-generated method stub
         helloNotifier.send();

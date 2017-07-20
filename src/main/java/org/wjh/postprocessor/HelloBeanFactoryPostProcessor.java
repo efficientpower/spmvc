@@ -10,12 +10,12 @@ public class HelloBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
 
     public HelloBeanFactoryPostProcessor() {
         // TODO Auto-generated constructor stub
-        System.out.println("HelloBeanFactoryPostProcessor 初始化");
+        System.out.println("HelloBeanFactoryPostProcessor 构造方法");
     }
 
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         // TODO Auto-generated method stub
-        System.out.println("HelloBeanFactoryPostProcessor postProcessBeanFactory");
+        System.out.println("HelloBeanFactoryPostProcessor postProcessBeanFactory()");
     }
 
 }
