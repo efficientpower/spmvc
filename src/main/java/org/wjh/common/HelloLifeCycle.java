@@ -34,29 +34,33 @@ public class HelloLifeCycle implements InitializingBean, DisposableBean, BeanNam
 
     public void setBeanName(String name) {
         // TODO Auto-generated method stub
-        System.out.println("HelloLifeCycle Aware setBeanName() name=" + name);
+        System.out.println("HelloLifeCycle Aware[BeanNameAware] setBeanName() name=" + name);
     }
 
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         // TODO Auto-generated method stub
-        System.out.println("HelloLifeCycle Aware setBeanFactory()");
+        System.out.println("HelloLifeCycle Aware[BeanFactoryAware] setBeanFactory()");
     }
 
     public void setResourceLoader(ResourceLoader resourceLoader) {
         // TODO Auto-generated method stub
-        System.out.println("HelloLifeCycle Aware setResourceLoader()");
+        System.out.println("HelloLifeCycle Aware[ResourceLoaderAware] setResourceLoader()");
     }
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         // TODO Auto-generated method stub
-        System.out.println("HelloLifeCycle Aware setApplicationContext()");
+        System.out.println("HelloLifeCycle Aware[ApplicationContextAware] setApplicationContext()");
         String[] beanPostProcessNames = applicationContext.getBeanNamesForType(BeanPostProcessor.class);
         for(String name : beanPostProcessNames){
-            System.out.println("======HelloLifeCycle beanPostProcess=" + name);
+            System.out.println("   ======HelloLifeCycle beanPostProcess=" + name);
         }
         String[] beanFactoryPostProcessNames = applicationContext.getBeanNamesForType(BeanFactoryPostProcessor.class);
         for(String name : beanFactoryPostProcessNames){
-            System.out.println("******HelloLifeCycle beanFactoryPostProcessor=" + name);
+            System.out.println("   ******HelloLifeCycle beanFactoryPostProcessor=" + name);
+        }
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
+        for(String name : beanNames){
+            System.out.println("   ######HelloLifeCycle beanName=" + name);
         }
     }
 

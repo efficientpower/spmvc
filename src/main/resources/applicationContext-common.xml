@@ -18,4 +18,7 @@
    <bean id="helloLifeCycle" class="org.wjh.common.HelloLifeCycle" init-method="helloInit" destroy-method="helloDestory">
         <property name="duration" value="20170721"/>
    </bean>
+   <bean id="car" class="org.wjh.common.HelloFactoryBean" >
+        <property name="carName" value="奥迪"/>
+   </bean>
 </beans>
