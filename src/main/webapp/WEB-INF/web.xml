@@ -3,7 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	<display-name>springMVC</display-name>
+	<display-name>spmvc</display-name>
 	<!-- Content Param -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
