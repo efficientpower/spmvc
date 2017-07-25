@@ -3,10 +3,14 @@ package org.wjh.web;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.wjh.service.UserService;
 
 @Controller
@@ -27,8 +31,28 @@ public class HelloController {
     public Object hello(){
         Map<String, Object> res = new HashMap<String, Object>();
         
-        res.put("name", "wjh");
+        res.put("name", "xiaoming");
         res.put("age", 27);
+        return res;
+    }
+    
+    @ResponseBody
+    @RequestMapping("/wjh/say.do")
+    public Object say(HttpServletRequest request){
+        Map<String, Object> res = new HashMap<String, Object>();
+        String servletName = request.getServerName();
+        String servletPath = request.getServletPath();
+        int port = request.getServerPort();
+        ServletContext  context = request.getServletContext();
+        XmlWebApplicationContext rootContext = (XmlWebApplicationContext)context.getAttribute("org.springframework.web.context.WebApplicationContext.ROOT");
+        XmlWebApplicationContext childContext = (XmlWebApplicationContext)context.getAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcher");
+        String[] names = rootContext.getBeanDefinitionNames();
+        String[] cnames = childContext.getBeanDefinitionNames();
+        res.put("servletName", servletName);
+        res.put("servletPath", servletPath);
+        res.put("rootNames", names);
+        res.put("childNames",cnames);
+        res.put("port", port);
         return res;
     }
 }
