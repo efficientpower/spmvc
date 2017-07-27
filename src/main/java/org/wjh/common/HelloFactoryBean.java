@@ -6,6 +6,11 @@ import org.wjh.domain.Car;
 public class HelloFactoryBean implements FactoryBean<Car> {
     private String carName;
 
+    public HelloFactoryBean() {
+        // TODO Auto-generated constructor stub
+        System.out.println("HelloFactoryBean 构造方法");
+    }
+
     public String getCarName() {
         return carName;
     }
