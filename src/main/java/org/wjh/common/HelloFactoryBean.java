@@ -30,7 +30,7 @@ public class HelloFactoryBean implements FactoryBean<Car> {
 
     public boolean isSingleton() {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
 }
