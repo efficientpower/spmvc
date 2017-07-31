@@ -25,8 +25,6 @@ public class HelloController {
         // TODO Auto-generated constructor stub
     }
 
-
-
     @ResponseBody
     @RequestMapping("/wjh/hello.do")
     public Object hello(){
@@ -54,7 +52,7 @@ public class HelloController {
         XmlWebApplicationContext childContext = (XmlWebApplicationContext)context.getAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcher");
         String[] names = rootContext.getBeanDefinitionNames();
         String[] cnames = childContext.getBeanDefinitionNames();
-        
+        rootContext.getBean("car");
         res.put("servletName", servletName);
         res.put("servletPath", servletPath);
         res.put("serverName", serverName);
@@ -64,5 +62,9 @@ public class HelloController {
         res.put("rootNames", names);
         res.put("childNames",cnames);
         return res;
+    }
+    
+    public void nicai(){
+        
     }
 }
