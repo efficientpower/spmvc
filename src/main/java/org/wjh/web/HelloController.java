@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.wjh.service.UserService;
@@ -27,11 +28,11 @@ public class HelloController {
 
     @ResponseBody
     @RequestMapping("/wjh/hello.do")
-    public Object hello(){
+    public Object hello(@RequestParam("arg") Integer arg){
         Map<String, Object> res = new HashMap<String, Object>();
-        
         res.put("name", "xiaoming");
         res.put("age", 27);
+        res.put("arg", arg);
         return res;
     }
     
