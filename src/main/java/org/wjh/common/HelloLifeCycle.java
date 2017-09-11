@@ -63,9 +63,6 @@ public class HelloLifeCycle implements InitializingBean, DisposableBean, BeanNam
         for(String name : beanNames){
             System.out.println("   ######HelloLifeCycle beanName=" + name);
         }
-//        Car car1 = (Car)applicationContext.getBean("car");
-//        Car car2 = (Car)applicationContext.getBean("car");
-//        System.out.println("   >>>>>car1==car2 :" + (car1 == car2));
     }
 
     public void destroy() throws Exception {
