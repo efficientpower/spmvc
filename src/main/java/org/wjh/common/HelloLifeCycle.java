@@ -12,7 +12,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.ResourceLoader;
-import org.wjh.domain.Car;
 
 public class HelloLifeCycle implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware,
         ResourceLoaderAware, ApplicationContextAware {
@@ -52,15 +51,15 @@ public class HelloLifeCycle implements InitializingBean, DisposableBean, BeanNam
         // TODO Auto-generated method stub
         System.out.println("HelloLifeCycle Aware[ApplicationContextAware] setApplicationContext()");
         String[] beanPostProcessNames = applicationContext.getBeanNamesForType(BeanPostProcessor.class);
-        for(String name : beanPostProcessNames){
+        for (String name : beanPostProcessNames) {
             System.out.println("   ======HelloLifeCycle beanPostProcess=" + name);
         }
         String[] beanFactoryPostProcessNames = applicationContext.getBeanNamesForType(BeanFactoryPostProcessor.class);
-        for(String name : beanFactoryPostProcessNames){
+        for (String name : beanFactoryPostProcessNames) {
             System.out.println("   ******HelloLifeCycle beanFactoryPostProcessor=" + name);
         }
         String[] beanNames = applicationContext.getBeanDefinitionNames();
-        for(String name : beanNames){
+        for (String name : beanNames) {
             System.out.println("   ######HelloLifeCycle beanName=" + name);
         }
     }
