@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 public class HelloAnnotationAopAspect {
 
     @Pointcut("execution(public * org.wjh..*.*(..))")
-    public void hello() {
+    public void HelloAnnotationAopAspectPointcut() {
     }
     
-    @Before("hello()")
+    @Before("HelloAnnotationAopAspectPointcut()")
     public void before(JoinPoint joinPoint){
-        System.out.println("@Before method=" + joinPoint.getTarget());
+        System.out.println("HelloAnnotationAopAspect @Before method=" + joinPoint.getTarget());
     }
 
-    @After("hello()")
+    @After("HelloAnnotationAopAspectPointcut()")
     public void after(JoinPoint joinPoint){
-        System.out.println("@After method=" + joinPoint.getTarget());
+        System.out.println("HelloAnnotationAopAspect @After method=" + joinPoint.getTarget());
     }
 }
