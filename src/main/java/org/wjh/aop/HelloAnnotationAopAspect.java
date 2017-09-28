@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class HelloAopAspect {
+public class HelloAnnotationAopAspect {
 
     @Pointcut("execution(public * org.wjh..*.*(..))")
     public void hello() {

@@ -21,4 +21,11 @@
    <bean id="car" class="org.wjh.common.HelloFactoryBean" >
         <property name="carName" value="奥迪"/>
    </bean>
+   <aop:config>
+        <aop:aspect ref="helloXmlAopAspect">
+            <aop:pointcut id="helloXmlAopAspectPointcut" expression="execution(public * org.wjh..*.*.*(..))"/>
+            <aop:before method="before" pointcut-ref="helloXmlAopAspectPointcut"/>
+            <aop:after method="after" pointcut-ref="helloXmlAopAspectPointcut"/>
+        </aop:aspect>
+   </aop:config>
 </beans>
