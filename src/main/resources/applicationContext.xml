@@ -23,6 +23,8 @@
 	<task:annotation-driven />
 	<!-- 启动AspectJ支持 -->
 	<aop:aspectj-autoproxy />
-
+    <!-- 开启注解事务支持 -->
+    <tx:annotation-driven/>
+    
 	<import resource="applicationContext-common.xml" />
 </beans>
