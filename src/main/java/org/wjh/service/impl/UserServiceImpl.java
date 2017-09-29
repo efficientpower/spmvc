@@ -18,8 +18,13 @@ public class UserServiceImpl implements UserService {
 
     public String getUserName(String userId) {
         // TODO Auto-generated method stub
-        helloNotifier.send();
         return "wangjihui";
+    }
+
+    public String getUserId(String userId) {
+        // TODO Auto-generated method stub
+        helloNotifier.send();
+        return userId;
     }
 
 }
