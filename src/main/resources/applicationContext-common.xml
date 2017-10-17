@@ -21,6 +21,7 @@
    <bean id="car" class="org.wjh.common.HelloFactoryBean" >
         <property name="carName" value="奥迪"/>
    </bean>
+   <bean id="helloXmlAopAspect" class="org.wjh.aop.HelloXmlAopAspect"/>
    <aop:config>
         <aop:aspect ref="helloXmlAopAspect">
             <aop:pointcut id="helloXmlAopAspectPointcut" expression="execution(public * org.wjh..*.HelloNotifier.*(..))"/>

@@ -1,9 +1,7 @@
 package org.wjh.aop;
 
 import org.aspectj.lang.JoinPoint;
-import org.springframework.stereotype.Component;
 
-@Component
 public class HelloXmlAopAspect {
 
     public void before(JoinPoint joinPoint) {
