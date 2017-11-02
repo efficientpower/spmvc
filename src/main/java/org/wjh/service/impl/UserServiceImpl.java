@@ -20,6 +20,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor=Exception.class)
     public String getUserName(String userId) {
         // TODO Auto-generated method stub
+        System.out.println("execute UserServiceImpl.getUserName()");
         return "wangjihui";
     }
 
