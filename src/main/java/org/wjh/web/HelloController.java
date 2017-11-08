@@ -28,8 +28,12 @@ public class HelloController {
 
     @ResponseBody
     @RequestMapping("/wjh/hello.do")
-    public Object hello(@RequestParam(value="arg", required=false) Integer arg){
-        userService.getUserName("wangjihui");
+    public Object hello(@RequestParam(value="arg", required=false, defaultValue="1") Integer arg){
+        if(arg.equals(1)){
+            userService.getUserName("wangjihui");
+        }else{
+            userService.getUserId("wangjihui");
+        }
         Map<String, Object> res = new HashMap<String, Object>();
         res.put("name", "xiaoming");
         res.put("age", 27);
