@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
 
     public String getUserId(String userId) {
         // TODO Auto-generated method stub
+        System.out.println("execute UserServiceImpl.getUserId()");
         helloNotifier.send();
         return userId;
     }
