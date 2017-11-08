@@ -20,13 +20,13 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor=Exception.class)
     public String getUserName(String userId) {
         // TODO Auto-generated method stub
-        System.out.println("execute UserServiceImpl.getUserName()");
+        System.out.println("===============execute UserServiceImpl.getUserName()");
         return "wangjihui";
     }
 
     public String getUserId(String userId) {
         // TODO Auto-generated method stub
-        System.out.println("execute UserServiceImpl.getUserId()");
+        System.out.println("===============execute UserServiceImpl.getUserId()");
         helloNotifier.send();
         return userId;
     }

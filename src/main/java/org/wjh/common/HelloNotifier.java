@@ -11,6 +11,6 @@ public class HelloNotifier {
     }
 
     public void send(){
-        System.out.println("execute HelloNotifier.send()");
+        System.out.println("===============execute HelloNotifier.send()");
     }
 }
