@@ -4,6 +4,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -46,5 +47,10 @@ public class HelloAnnotationAopAspect {
         Object val = joinPoint.proceed();
         System.out.println("HelloAnnotationAopAspect =====@Around--after===== method=" + joinPoint.getSignature().getName());
         return val;
+    }
+
+    @AfterThrowing("HelloAnnotationAopAspectPointcut()")
+    public void afterThrowing(JoinPoint joinPoint) throws Throwable{
+        System.out.println("HelloAnnotationAopAspect =====@AfterThrowing===== method=" + joinPoint.getSignature().getName());
     }
 }

@@ -28,4 +28,8 @@ public class HelloXmlAopAspect {
         System.out.println("HelloXmlAopAspect =====around--after===== method=" + joinPoint.getSignature().getName());
         return val;
     }
+
+    public void afterThrowing(JoinPoint joinPoint) throws Throwable{
+        System.out.println("HelloXmlAopAspect =====afterThrowing===== method=" + joinPoint.getSignature().getName());
+    }
 }
