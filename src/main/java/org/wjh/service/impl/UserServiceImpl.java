@@ -2,7 +2,6 @@ package org.wjh.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.wjh.common.HelloNotifier;
 import org.wjh.service.UserService;
 
@@ -17,7 +16,6 @@ public class UserServiceImpl implements UserService {
         System.out.println("UserServiceImpl 构造方法");
     }
 
-    @Transactional(rollbackFor=Exception.class)
     public String getUserName(String userId) {
         // TODO Auto-generated method stub
         System.out.println("===============execute UserServiceImpl.getUserName()");
@@ -29,6 +27,13 @@ public class UserServiceImpl implements UserService {
         System.out.println("===============execute UserServiceImpl.getUserId()");
         helloNotifier.send();
         return userId;
+    }
+
+    public String getAll() {
+        // TODO Auto-generated method stub
+        System.out.println("===============execute UserServiceImpl.getAll()");
+        int a = 1/0;
+        return "wangjihui";
     }
 
 }

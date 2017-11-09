@@ -31,8 +31,10 @@ public class HelloController {
     public Object hello(@RequestParam(value="arg", required=false, defaultValue="1") Integer arg){
         if(arg.equals(1)){
             userService.getUserName("wangjihui");
-        }else{
+        }else if(arg.equals(2)){
             userService.getUserId("wangjihui");
+        }else{
+            userService.getAll();
         }
         Map<String, Object> res = new HashMap<String, Object>();
         res.put("name", "xiaoming");
