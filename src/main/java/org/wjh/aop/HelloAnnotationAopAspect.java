@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloAnnotationAopAspect {
 
-    @Pointcut("execution(public * org.wjh.service.*.*(..))")
+    @Pointcut("execution(public * org.wjh.service..*.*(..))")
     public void HelloAnnotationAopAspectPointcut() {
     }
     
