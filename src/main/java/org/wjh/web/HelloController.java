@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.XmlWebApplicationContext;
+import org.wjh.common.HelloNotifier;
 import org.wjh.service.UserService;
 
 @Controller
@@ -20,6 +21,8 @@ public class HelloController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    HelloNotifier helloNotifier;
     
     public HelloController() {
         System.out.println("HelloController 构造方法");
@@ -33,8 +36,10 @@ public class HelloController {
             userService.getUserName("wangjihui");
         }else if(arg.equals(2)){
             userService.getUserId("wangjihui");
-        }else{
+        }else if(arg.equals(3)){
             userService.getAll();
+        }else{
+            helloNotifier.send();
         }
         Map<String, Object> res = new HashMap<String, Object>();
         res.put("name", "xiaoming");
