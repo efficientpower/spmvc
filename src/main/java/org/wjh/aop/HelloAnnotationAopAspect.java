@@ -43,9 +43,9 @@ public class HelloAnnotationAopAspect {
          * 如果忘记会导致通知被执行,但是目标方法没有执行。
          * 环绕通知需要返回目标方法执行后的结果,否则可能会导致空指针异常
          */
-        System.out.println("HelloAnnotationAopAspect =====@Around--before===== method=" + joinPoint.getSignature().getName());
+        System.out.println("HelloAnnotationAopAspect =====@Around(before)===== method=" + joinPoint.getSignature().getName());
         Object val = joinPoint.proceed();
-        System.out.println("HelloAnnotationAopAspect =====@Around--after===== method=" + joinPoint.getSignature().getName());
+        System.out.println("HelloAnnotationAopAspect =====@Around(after)===== method=" + joinPoint.getSignature().getName());
         return val;
     }
 
