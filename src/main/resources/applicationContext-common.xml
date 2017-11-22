@@ -23,13 +23,13 @@
    </bean>
    <bean id="helloXmlAopAspect" class="org.wjh.aop.HelloXmlAopAspect"/>
    <aop:config>
-        <aop:pointcut id="helloXmlAopAspectPointcut" expression="execution(public * org.wjh..*.HelloNotifier.*(..))"/>
-        <aop:aspect ref="helloXmlAopAspect" order="1">
-            <aop:before method="before" pointcut-ref="helloXmlAopAspectPointcut"/>
+        <aop:pointcut id="helloXmlAopAspectPointcut" expression="execution(public * org.wjh.service..*.*(..))"/>
+        <aop:aspect ref="helloXmlAopAspect" order="299">
             <aop:after method="after" pointcut-ref="helloXmlAopAspectPointcut"/>
+            <aop:around method="around" pointcut-ref="helloXmlAopAspectPointcut"/>
+            <aop:before method="before" pointcut-ref="helloXmlAopAspectPointcut"/>
             <aop:after-returning method="afterReturning" pointcut-ref="helloXmlAopAspectPointcut"/>
             <aop:after-throwing method="afterThrowing" pointcut-ref="helloXmlAopAspectPointcut"/>
-            <aop:around method="around" pointcut-ref="helloXmlAopAspectPointcut"/>
         </aop:aspect>
    </aop:config>
 </beans>
