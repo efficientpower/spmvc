@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,8 +51,11 @@ public class HelloController {
     }
     
     @ResponseBody
-    @RequestMapping("/wjh/say.do")
-    public Object say(HttpServletRequest request){
+    @RequestMapping("/wjh/{age}/say.do")
+    public Object say(HttpServletRequest request,
+            @RequestParam("name") String name,
+            @PathVariable("age") Integer age,
+            @RequestHeader("user-agent") String userAgent){
         Map<String, Object> res = new LinkedHashMap<String, Object>();
         String servletName = request.getServerName();
         String servletPath = request.getServletPath();
@@ -75,9 +80,5 @@ public class HelloController {
         res.put("rootNames", names);
         res.put("childNames",cnames);
         return res;
-    }
-    
-    public void nicai(){
-        
     }
 }
