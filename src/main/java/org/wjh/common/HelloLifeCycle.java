@@ -1,10 +1,10 @@
 package org.wjh.common;
 
-import org.springframework.context.Lifecycle;
+import org.springframework.context.SmartLifecycle;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HelloLifeCycle implements Lifecycle {
+public class HelloLifeCycle implements SmartLifecycle {
 
     public void start() {
         // TODO Auto-generated method stub
@@ -19,6 +19,21 @@ public class HelloLifeCycle implements Lifecycle {
     public boolean isRunning() {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    public int getPhase() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public boolean isAutoStartup() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
+    public void stop(Runnable callback) {
+        // TODO Auto-generated method stub
+        
     }
 
 }
