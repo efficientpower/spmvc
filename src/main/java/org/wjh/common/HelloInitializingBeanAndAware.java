@@ -6,8 +6,6 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ResourceLoaderAware;
@@ -50,18 +48,6 @@ public class HelloInitializingBeanAndAware implements InitializingBean, Disposab
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         // TODO Auto-generated method stub
         System.out.println("HelloInitializingBeanAndAware Aware[ApplicationContextAware] setApplicationContext()");
-        String[] beanPostProcessNames = applicationContext.getBeanNamesForType(BeanPostProcessor.class);
-        for (String name : beanPostProcessNames) {
-            System.out.println("   ======HelloInitializingBeanAndAware beanPostProcess=" + name);
-        }
-        String[] beanFactoryPostProcessNames = applicationContext.getBeanNamesForType(BeanFactoryPostProcessor.class);
-        for (String name : beanFactoryPostProcessNames) {
-            System.out.println("   ******HelloInitializingBeanAndAware beanFactoryPostProcessor=" + name);
-        }
-        String[] beanNames = applicationContext.getBeanDefinitionNames();
-        for (String name : beanNames) {
-            System.out.println("   ######HelloInitializingBeanAndAware beanName=" + name);
-        }
     }
 
     public void destroy() throws Exception {
