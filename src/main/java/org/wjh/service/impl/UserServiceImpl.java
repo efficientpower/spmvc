@@ -32,8 +32,7 @@ public class UserServiceImpl implements UserService {
     public String getAll() {
         // TODO Auto-generated method stub
         System.out.println("===============execute UserServiceImpl.getAll()");
-        int a = 1/0;
-        return "wangjihui";
+        return "wangjihui" + 1/0;
     }
 
 }
