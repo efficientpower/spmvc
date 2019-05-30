@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.wjh.common.HelloNotifier;
+import org.wjh.annotation.User;
 import org.wjh.service.UserService;
 
 @Controller
@@ -31,6 +32,7 @@ public class HelloController {
         // TODO Auto-generated constructor stub
     }
 
+    @User
     @ResponseBody
     @RequestMapping("/wjh/hello.do")
     public Object hello(@RequestParam(value="arg", required=false, defaultValue="1") Integer arg){

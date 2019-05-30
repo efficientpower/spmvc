@@ -16,5 +16,14 @@
 	</context:component-scan>
 	<!-- 注解支持的mvc -->
 	<mvc:annotation-driven />
-	<bean id="helloControllerBeanPostProcessor" class="org.wjh.common.HelloControllerBeanPostProcessor"/>
+	<!--拦截器-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*.do"/>
+			<mvc:exclude-mapping path="/dd"/>
+			<bean class="org.wjh.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!--异常处理器-->
+	<bean class="org.wjh.common.HelloHandlerExceptionResolver"/>
 </beans>
