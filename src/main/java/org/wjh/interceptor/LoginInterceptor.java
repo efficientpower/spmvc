@@ -5,6 +5,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.wjh.annotation.User;
+import org.wjh.common.Code;
+import org.wjh.common.CommonException;
 import org.wjh.common.WebUser;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,14 +23,11 @@ public class LoginInterceptor implements HandlerInterceptor {
             HandlerMethod hm = (HandlerMethod)handler;
             Annotation[] annotations = AnnotationUtils.getAnnotations(hm.getMethod());
             for(Annotation a : annotations){
-               if(a.getClass().equals(User.class)){
-                    if(WebUser.getU){
-
-                    }
+               if(a.getClass().equals(User.class) && !WebUser.hasLogin()){
+                    throw new CommonException(Code.NOT_LOGIN.getMsg(), Code.NOT_LOGIN.getCode());
                }
             }
         }
-
         return true;
     }
 
