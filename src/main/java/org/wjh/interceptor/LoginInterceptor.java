@@ -21,11 +21,9 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if(handler !=null && handler.getClass().isAssignableFrom(HandlerMethod.class)){
             HandlerMethod hm = (HandlerMethod)handler;
-            Annotation[] annotations = AnnotationUtils.getAnnotations(hm.getMethod());
-            for(Annotation a : annotations){
-               if(a.getClass().equals(User.class) && !WebUser.hasLogin()){
-                    throw new CommonException(Code.NOT_LOGIN.getMsg(), Code.NOT_LOGIN.getCode());
-               }
+            Annotation annotation = AnnotationUtils.getAnnotation(hm.getMethod(), User.class);
+            if(annotation != null && !WebUser.hasLogin()){
+                throw new CommonException(Code.NOT_LOGIN.getMsg(), Code.NOT_LOGIN.getCode());
             }
         }
         return true;
