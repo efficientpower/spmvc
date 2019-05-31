@@ -16,7 +16,6 @@ import com.google.gson.Gson;
 /**
  * 公共异常处理
  */
-@Component
 public class HelloHandlerExceptionResolver implements HandlerExceptionResolver {
     Log log = LogFactory.getLog(HelloHandlerExceptionResolver.class);
     private static Gson gson = new Gson();

@@ -24,6 +24,6 @@
             <bean class="org.wjh.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-    <!--异常处理器-->
+    <!--异常处理器,由于异常处理器应该只属于mvc这个子容器，但是mvc只包含Controller注解，所以此处在xml中配置，只要子容器托管，不用Component注解-->
     <bean class="org.wjh.common.HelloHandlerExceptionResolver"/>
 </beans>
