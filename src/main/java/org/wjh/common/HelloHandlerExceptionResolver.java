@@ -27,7 +27,8 @@ public class HelloHandlerExceptionResolver implements HandlerExceptionResolver {
         PrintWriter writer = null;
         try {
             writer = response.getWriter();
-            log.error("处理错误：" + ((HandlerMethod)handler).getMethod().getName(), ex);
+            HandlerMethod hm = (HandlerMethod)handler;
+            log.error("处理错误：" + hm.getClass().getName() +"." + hm.getMethod().getName(), ex);
             throw ex;
         } catch (CommonException e) {
             Result<Object> res = new Result<Object>(e.getCode(), e.getMsg());
