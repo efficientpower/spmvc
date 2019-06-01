@@ -19,7 +19,7 @@ import java.lang.annotation.Annotation;
 public class LoginInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if(handler !=null && handler.getClass().isAssignableFrom(HandlerMethod.class)){
+        if(handler !=null && HandlerMethod.class.isAssignableFrom(handler.getClass())){
             HandlerMethod hm = (HandlerMethod)handler;
             Annotation annotation = AnnotationUtils.getAnnotation(hm.getMethod(), User.class);
             if(annotation != null && !WebUser.hasLogin()){
