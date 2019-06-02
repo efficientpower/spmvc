@@ -2,7 +2,6 @@ package org.wjh.common;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,34 +13,35 @@ import java.io.PrintWriter;
 import com.google.gson.Gson;
 
 /**
- * 公共异常处理
+ * 公共异常处理解析器
  */
 public class HelloHandlerExceptionResolver implements HandlerExceptionResolver {
     Log log = LogFactory.getLog(HelloHandlerExceptionResolver.class);
     private static Gson gson = new Gson();
 
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-        response.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("utf-8");
         response.setContentType("application/json; charset=utf-8");
         PrintWriter writer = null;
+        HandlerMethod hm = (HandlerMethod) handler;
+        Result<Object> res = new Result<Object>(Code.FAIL.getCode(), Code.FAIL.getMsg());
         try {
             writer = response.getWriter();
-            HandlerMethod hm = (HandlerMethod)handler;
-            log.error("处理错误：" + hm.getClass().getName() +"." + hm.getMethod().getName(), ex);
             throw ex;
         } catch (CommonException e) {
-            Result<Object> res = new Result<Object>(e.getCode(), e.getMsg());
-            writer.write(gson.toJson(res));
-            writer.flush();
+            res = new Result<Object>(e.getCode(), e.getMsg());
+            if(!Code.NOT_LOGIN.getCode().equals(e.getCode())){
+                log.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
+            }
         } catch (Exception e) {
-            Result<Object> res = new Result<Object>(Code.FAIL.getCode(), Code.FAIL.getMsg());
-            writer.write(gson.toJson(res));
-            writer.flush();
-        }finally{
-            if(writer != null){
+            log.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
+        } finally {
+            if (writer != null) {
                 writer.close();
             }
         }
+        writer.write(gson.toJson(res));
+        writer.flush();
         return null;
     }
 }
