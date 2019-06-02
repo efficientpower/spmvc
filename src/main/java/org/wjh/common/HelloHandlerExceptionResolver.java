@@ -37,11 +37,11 @@ public class HelloHandlerExceptionResolver implements HandlerExceptionResolver {
             log.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
         } finally {
             if (writer != null) {
+                writer.write(gson.toJson(res));
+                writer.flush();
                 writer.close();
             }
         }
-        writer.write(gson.toJson(res));
-        writer.flush();
         return null;
     }
 }
