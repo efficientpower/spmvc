@@ -24,4 +24,11 @@
     </mvc:interceptors>
     <!--异常处理器,由于异常处理器应该只属于mvc这个子容器，但是mvc只包含Controller注解，所以此处在xml中配置，只要子容器托管，不用Component注解-->
     <bean class="org.wjh.common.HelloHandlerExceptionResolver"/>
+    <!--文件解析器,id必须是multipartResolver，需要依赖commons-fileupload，但是没有自动导入，需要手动配置pom引入,否则项目无法启用-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="52428800"/>
+        <property name="maxInMemorySize" value="2048000"/>
+        <property name="resolveLazily" value="true"/>
+    </bean>
 </beans>
