@@ -2,8 +2,6 @@ package org.wjh.common;
 
 import com.google.common.base.Strings;
 
-import java.util.Date;
-
 public class WebUser {
     public static ThreadLocal<WebUser> webUserThreadLocal = new ThreadLocal<WebUser>();
 
