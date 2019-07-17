@@ -100,7 +100,7 @@ public class HelloInitializingBeanAndAware implements InitializingBean, Disposab
      * @PreDestroy 注解实现的关闭方法
      */
     @PreDestroy
-    public void preDestory() {
+    public void preDestroy() {
         System.out.println("HelloInitializingBeanAndAware @PreDestroy preDestory()");
     }
 }
