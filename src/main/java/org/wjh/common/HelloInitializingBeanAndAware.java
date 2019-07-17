@@ -11,6 +11,9 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.ResourceLoader;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class HelloInitializingBeanAndAware implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware,
         ResourceLoaderAware, ApplicationContextAware {
 
@@ -50,22 +53,51 @@ public class HelloInitializingBeanAndAware implements InitializingBean, Disposab
         System.out.println("HelloInitializingBeanAndAware Aware[ApplicationContextAware] setApplicationContext()");
     }
 
-    public void destroy() throws Exception {
-        // TODO Auto-generated method stub
-        System.out.println("HelloInitializingBeanAndAware destory()");
-    }
-
+    /**
+     * 实现InitializingBean的初始化方法
+     * @throws Exception
+     */
     public void afterPropertiesSet() throws Exception {
         // TODO Auto-generated method stub
-        System.out.println("HelloInitializingBeanAndAware afterPropertiesSet()");
+        System.out.println("HelloInitializingBeanAndAware InitializingBean.afterPropertiesSet()");
     }
 
+    /**
+     * 实现DisposableBean的关闭方法
+     * @throws Exception
+     */
+    public void destroy() throws Exception {
+        // TODO Auto-generated method stub
+        System.out.println("HelloInitializingBeanAndAware DisposableBean.destory()");
+    }
+
+    /**
+     * init-method指定的初始化方法
+     */
     public void helloInit() {
         System.out.println("HelloInitializingBeanAndAware init-method helloInit()");
     }
 
-    public void helloDestory() {
-        System.out.println("HelloInitializingBeanAndAware destory-method helloDestory()");
+    /**
+     *destroy-method指定的关闭方法
+     */
+    public void helloDestroy() {
+        System.out.println("HelloInitializingBeanAndAware destroy-method helloDestory()");
     }
 
+    /**
+     * @PostConstruct 注解实现的初始化方法
+     */
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("HelloInitializingBeanAndAware @PostConstruct postConstruct()");
+    }
+
+    /**
+     * @PreDestroy 注解实现的关闭方法
+     */
+    @PreDestroy
+    public void preDestory() {
+        System.out.println("HelloInitializingBeanAndAware @PreDestroy preDestory()");
+    }
 }
