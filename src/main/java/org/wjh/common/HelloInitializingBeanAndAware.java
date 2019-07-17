@@ -14,6 +14,9 @@ import org.springframework.core.io.ResourceLoader;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+/**
+ * aware，@PostConstruct，@PreDestroy，InitializingBean，DisposableBean，init-method，destroy-method使用示例
+ */
 public class HelloInitializingBeanAndAware implements InitializingBean, DisposableBean, BeanNameAware, BeanFactoryAware,
         ResourceLoaderAware, ApplicationContextAware {
 
