@@ -85,7 +85,7 @@ public class HelloInitializingBeanAndAware implements InitializingBean, Disposab
      *destroy-method指定的关闭方法
      */
     public void helloDestroy() {
-        System.out.println("HelloInitializingBeanAndAware destroy-method helloDestory()");
+        System.out.println("HelloInitializingBeanAndAware destroy-method helloDestroy()");
     }
 
     /**
