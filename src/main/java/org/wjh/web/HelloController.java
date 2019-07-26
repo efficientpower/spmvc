@@ -1,5 +1,6 @@
 package org.wjh.web;
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -59,28 +60,35 @@ public class HelloController {
             @PathVariable("age") Integer age,
             @RequestHeader("user-agent") String userAgent){
         Map<String, Object> res = new LinkedHashMap<String, Object>();
-        String servletName = request.getServerName();
-        String servletPath = request.getServletPath();
-        String contextPath = request.getContextPath();
-        String serverName = request.getServerName();
-        int port = request.getServerPort();
-        
+
         ServletContext  context = request.getServletContext();
-        String serverInfo = context.getServerInfo();
-        
         XmlWebApplicationContext rootContext = (XmlWebApplicationContext)context.getAttribute("org.springframework.web.context.WebApplicationContext.ROOT");
         XmlWebApplicationContext childContext = (XmlWebApplicationContext)context.getAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.dispatcher");
-        String[] names = rootContext.getBeanDefinitionNames();
-        String[] cnames = childContext.getBeanDefinitionNames();
+        String[] rootNames = rootContext.getBeanDefinitionNames();
+        String[] childNames = childContext.getBeanDefinitionNames();
         rootContext.getBean("car");
-        res.put("servletName", servletName);
-        res.put("servletPath", servletPath);
-        res.put("serverName", serverName);
-        res.put("contextPath", contextPath);
-        res.put("port", port);
-        res.put("serverInfo", serverInfo);
-        res.put("rootNames", names);
-        res.put("childNames",cnames);
+        Map<String,Object> headers = new LinkedHashMap<String,Object>();
+        Enumeration<String> henus = request.getHeaderNames();
+        while(henus.hasMoreElements()){
+            String hn = henus.nextElement();
+            String val = request.getHeader(hn);
+            headers.put(hn, val);
+        }
+        res.put("servletName", request.getServerName());
+        res.put("servletPath", request.getServletPath());
+        res.put("serverName", request.getServerName());
+        res.put("contextPath", request.getContextPath());
+        res.put("method", request.getMethod());
+        res.put("headers", headers);
+        res.put("cookies", request.getCookies());
+        res.put("URI", request.getRequestURI());
+        res.put("URL", request.getRequestURL());
+        res.put("sessionId", request.getRequestedSessionId());
+        res.put("port", request.getServerPort());
+        res.put("serverInfo", context.getServerInfo());
+        res.put("protocol", request.getProtocol());
+        res.put("rootNames", rootNames);
+        res.put("childNames",childNames);
         return res;
     }
 }
