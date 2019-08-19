@@ -10,9 +10,10 @@
     </appender>
     <!-- 默认日志 -->
     <appender name="DailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="threshold" value="info" />
         <param name="file" value="/home/wangjihui/data/logs/spmvc/spmvc.log" />
+        <param name="threshold" value="info" />
         <param name="append" value="true" />
+        <param name="encoding" value="utf-8"/>
         <param name="datePattern" value="'.'yyyy-MM-dd" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%l]  %m%n" />
