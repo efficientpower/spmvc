@@ -1,6 +1,6 @@
 package org.wjh.common;
 
-import com.google.common.base.Strings;
+import org.apache.commons.lang3.StringUtils;
 
 public class WebUser {
     public static ThreadLocal<WebUser> webUserThreadLocal = new ThreadLocal<WebUser>();
@@ -22,7 +22,7 @@ public class WebUser {
 
     public static boolean hasLogin(){
         WebUser wu = getWebUser();
-        return wu != null && !Strings.isNullOrEmpty(wu.getUserId());
+        return wu != null && !StringUtils.isNotBlank(wu.getUserId());
     }
 
     public String getUserId() {

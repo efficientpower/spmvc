@@ -7,10 +7,10 @@
             http://www.springframework.org/schema/aop       http://www.springframework.org/schema/aop/spring-aop-3.2.xsd"
         default-autowire="byName" default-lazy-init="false">
 
-   <bean id="helloInitializingBeanAndAware" class="org.wjh.common.HelloInitializingBeanAndAware" init-method="helloInit" destroy-method="helloDestroy">
+   <bean id="helloInitializingBeanAndAware" class="org.wjh.lifecycle.HelloInitializingBeanAndAware" init-method="helloInit" destroy-method="helloDestroy">
         <property name="duration" value="20170721"/>
    </bean>
-   <bean id="car" class="org.wjh.common.HelloFactoryBean" >
+   <bean id="car" class="org.wjh.factorybean.HelloFactoryBean" >
         <property name="carName" value="奥迪"/>
    </bean>
    <bean id="helloXmlAopAspect" class="org.wjh.aop.HelloXmlAopAspect"/>

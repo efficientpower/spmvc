@@ -1,4 +1,4 @@
-package org.wjh.common;
+package org.wjh.applicationlistener;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

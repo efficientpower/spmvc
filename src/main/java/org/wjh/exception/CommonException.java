@@ -1,4 +1,6 @@
-package org.wjh.common;
+package org.wjh.exception;
+
+import org.wjh.common.Code;
 
 /**
  * 公共异常

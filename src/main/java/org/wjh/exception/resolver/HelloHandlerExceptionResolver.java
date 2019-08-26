@@ -1,7 +1,7 @@
-package org.wjh.common;
+package org.wjh.exception.resolver;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
 import com.google.gson.Gson;
+import org.wjh.common.Code;
+import org.wjh.common.Result;
+import org.wjh.exception.CommonException;
 
 /**
  * 公共异常处理解析器
  */
 public class HelloHandlerExceptionResolver implements HandlerExceptionResolver {
-    Log log = LogFactory.getLog(HelloHandlerExceptionResolver.class);
+    public static Logger logger = LoggerFactory.getLogger(HelloHandlerExceptionResolver.class);
     private static Gson gson = new Gson();
 
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
@@ -30,11 +33,9 @@ public class HelloHandlerExceptionResolver implements HandlerExceptionResolver {
             throw ex;
         } catch (CommonException e) {
             res = new Result<Object>(e.getCode(), e.getMsg());
-            if(!Code.NOT_LOGIN.getCode().equals(e.getCode())){
-                log.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
-            }
+            logger.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
         } catch (Exception e) {
-            log.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
+            logger.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
         } finally {
             if (writer != null) {
                 writer.write(gson.toJson(res));

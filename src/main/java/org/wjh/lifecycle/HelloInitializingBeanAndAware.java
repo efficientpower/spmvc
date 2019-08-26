@@ -1,4 +1,4 @@
-package org.wjh.common;
+package org.wjh.lifecycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;

@@ -1,4 +1,4 @@
-package org.wjh.common;
+package org.wjh.beanpostprocessor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

@@ -1,4 +1,4 @@
-package org.wjh.common;
+package org.wjh.lifecycle;
 
 import org.springframework.context.SmartLifecycle;
 import org.springframework.stereotype.Component;

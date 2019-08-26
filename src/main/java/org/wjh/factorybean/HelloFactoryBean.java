@@ -1,4 +1,4 @@
-package org.wjh.common;
+package org.wjh.factorybean;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.wjh.domain.Car;
