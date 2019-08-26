@@ -19,10 +19,15 @@
             <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%l]  %m%n" />
         </layout>
     </appender>
-    <!--root日志-->
+    <!--根root日志-->
     <root>
         <level value="info" />
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="dailyRollingFileAppender" />
     </root>
+    <!--子logger 日志-->
+    <logger name="org.wjh" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="dailyRollingFileAppender"/>
+    </logger>
 </log4j:configuration>
