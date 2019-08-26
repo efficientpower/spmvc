@@ -33,9 +33,9 @@ public class HelloHandlerExceptionResolver implements HandlerExceptionResolver {
             throw ex;
         } catch (CommonException e) {
             res = new Result<Object>(e.getCode(), e.getMsg());
-            logger.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
+            logger.error("处理错误：{}.{}", hm.getClass().getName(), hm.getMethod().getName(), e);
         } catch (Exception e) {
-            logger.error("处理错误：" + hm.getClass().getName() + "." + hm.getMethod().getName(), e);
+            logger.error("处理错误：{}.{}", hm.getClass().getName(), hm.getMethod().getName(), e);
         } finally {
             if (writer != null) {
                 writer.write(gson.toJson(res));
