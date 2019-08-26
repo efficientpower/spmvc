@@ -3,13 +3,13 @@
 
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <!-- 控制台日志 -->
-    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
             <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%l]  %m%n" />
         </layout>
     </appender>
-    <!-- 默认日志 -->
-    <appender name="DailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+    <!-- 每日追加文件日志 -->
+    <appender name="dailyRollingFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="file" value="/home/wangjihui/data/logs/spmvc/spmvc.log" />
         <param name="threshold" value="info" />
         <param name="append" value="true" />
@@ -19,9 +19,10 @@
             <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%l]  %m%n" />
         </layout>
     </appender>
+    <!--root日志-->
     <root>
         <level value="info" />
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="DailyRollingFile" />
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="dailyRollingFileAppender" />
     </root>
 </log4j:configuration>
