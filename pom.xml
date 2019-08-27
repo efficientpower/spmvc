@@ -50,7 +50,7 @@
 			<artifactId>gson</artifactId>
 			<version>2.8.5</version>
 		</dependency>
-		<!--文件上传组件，springmvc使用，没有自动依赖，需要手动引入-->
+		<!--文件上传组件，spring mvc文件上传使用，没有自动依赖，需要手动引入-->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
