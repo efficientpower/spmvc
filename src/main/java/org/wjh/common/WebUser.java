@@ -6,7 +6,6 @@ public class WebUser {
     public static ThreadLocal<WebUser> webUserThreadLocal = new ThreadLocal<WebUser>();
 
     private String userId;
-    private String userName;
     private long createTimeStamp;
     private long expireTime;
     private String ip;
@@ -22,7 +21,7 @@ public class WebUser {
 
     public static boolean hasLogin(){
         WebUser wu = getWebUser();
-        return wu != null && !StringUtils.isNotBlank(wu.getUserId());
+        return wu != null && StringUtils.isNotBlank(wu.getUserId());
     }
 
     public String getUserId() {
@@ -31,14 +30,6 @@ public class WebUser {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public long getCreateTimeStamp() {
