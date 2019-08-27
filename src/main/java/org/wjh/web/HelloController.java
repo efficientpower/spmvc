@@ -33,7 +33,6 @@ public class HelloController {
         // TODO Auto-generated constructor stub
     }
 
-    @User
     @ResponseBody
     @RequestMapping("/wjh/hello.do")
     public Object hello(@RequestParam(value="arg", required=false, defaultValue="1") Integer arg){
@@ -52,7 +51,8 @@ public class HelloController {
         res.put("arg", arg);
         return res;
     }
-    
+
+    @User
     @ResponseBody
     @RequestMapping("/wjh/{age}/say.do")
     public Object say(HttpServletRequest request,

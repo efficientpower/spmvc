@@ -2,10 +2,35 @@ package org.wjh.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.wjh.annotation.User;
+
+import java.lang.reflect.Method;
 
 public class HelloXmlAopAspect {
 
     public void before(JoinPoint joinPoint) {
+        /*
+        Object proxy = joinPoint.getThis();
+        Object target = joinPoint.getTarget();
+        MethodSignature signature = (MethodSignature)joinPoint.getSignature();
+        String methodName = signature.getName();
+        Class<?>[] classz = target.getClass().getInterfaces();
+        Class<?>[] parameterTypes = signature.getMethod().getParameterTypes();
+        try {
+            if(classz != null && classz.length>0){
+                for(Class clazz : classz){
+                    Method method = clazz.getMethod(methodName, parameterTypes);
+                    if(method !=null && method.isAnnotationPresent(User.class)){
+                        User user = method.getAnnotation(User.class);
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+
+        }
+        */
         System.out.println("HelloXmlAopAspect ============before===== method=" + joinPoint.getSignature().getName());
     }
 
